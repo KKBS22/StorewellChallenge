@@ -9,7 +9,8 @@ main(int argc, char **argv) {
 	Node *pNodeHead = NULL;
 	if(argc < 3) {
 		printf("Error : Incorrect args \n");
-		printf("Usage : ./a.out <LENGTH> <WIDTH>");
+		printf("Usage : ./squareCompute <LENGTH> <WIDTH>");
+		exit(1);
 	} else {
 		int length = atoi(argv[1]);
 		int width = atoi(argv[2]);
@@ -22,12 +23,13 @@ main(int argc, char **argv) {
 			ret = cutSquare(&pNodeHead, (size_t)length, (size_t)width);
 		}
 	}
-	if (ret == 15) {
+	if (ret == SUCCESS_CUT) {
 		displaySquareCut(pNodeHead);
 	} else {
 		printf("Error : Unable to compute cut squares \n");
 	}
 
 	freeData(pNodeHead);
+	return EXIT_SUCCESS;
 }
 

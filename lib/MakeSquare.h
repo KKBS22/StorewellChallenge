@@ -5,9 +5,14 @@
 
 //#define TESTING
 
+#define SUCCESS_CUT        15
+#define ERROR_COMPUTE      16
+
+
 typedef struct _square {
 	size_t sizeSide;
 	size_t numSquares;
+	int    area;
 } Square; 
 
 typedef struct _node {

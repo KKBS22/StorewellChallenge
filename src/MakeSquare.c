@@ -47,11 +47,11 @@ cutSquare(Node **pNode, size_t length, size_t width) {
        printf("Def case \n");
 #endif
 		insertNodeEnd(pNode, length, 1);
-		return 15;
+		return SUCCESS_CUT;
 	} else {
 		cutSquareRecursive(pNode, length, width);
 	}
-	return 15;
+	return SUCCESS_CUT;
 } 
 
 // #################################################
@@ -72,6 +72,7 @@ makeSquare(size_t sqSize, size_t nSquares) {
 	} else {
 		pSquare->sizeSide = sqSize;
 		pSquare->numSquares = nSquares;
+		pSquare->area = nSquares * (sqSize * sqSize);
 #ifdef TESTING
        printf("Make Square : Size is %zu number of squares %zu \n", 
 	      pSquare->sizeSide, pSquare->numSquares);

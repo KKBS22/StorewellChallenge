@@ -17,6 +17,13 @@ typedef struct _testValues {
 	TSquare squareTable[6];
 }TestValues;
 
+
+typedef struct _testValuesArea {
+	size_t  length;
+	size_t  width;
+}TestValuesArea;
+
+
 TestValues testTable[] = {
 				{100 , 100 , {[0] = {100 , 1}}},
 				{10  ,  10 , {[0] = {10  , 1}}},
@@ -29,7 +36,20 @@ TestValues testTable[] = {
 					      [3] = {5   , 6}}}
 		         };
 
+TestValuesArea testTableArea[] = {
+                                	{100 , 100},
+                                	{10  ,  10},
+                                	{9   ,   9},
+                                	{6   ,   5},
+                                	{100 , 135},
+					{1980,1340},
+					{986 ,  97},
+					{1234,4321}
+                        	 };
+
+
 size_t testVectorSize = sizeof(testTable) / sizeof(TestValues);
+size_t testVectorArea = sizeof(testTableArea) / sizeof(TestValuesArea);
 
 void test_cut_square() {
 	for (int i = 0 ; i < testVectorSize ; i++) {
@@ -55,6 +75,30 @@ void test_cut_square() {
 		}	
 	}
 }
+
+
+void test_cut_square_area() {
+	for (int i = 0 ; i < testVectorArea ; i++) {
+		Node *pNode = NULL;
+		int ret = 0;
+		
+		ret = cutSquare(&pNode, testTableArea[i].length, testTableArea[i].width);
+		if (ret ==  15) {
+			Node* pCurNode = pNode;
+			int sumArea = 0;
+			while(pCurNode != NULL) {
+				sumArea += pCurNode->sqCut->area;
+				pCurNode = pCurNode->nNext;
+			}
+			assert_int_equal((testTableArea[i].length * testTableArea[i].width), sumArea);
+			freeData(pNode);	
+		} else {
+			free(pNode);
+		}	
+	}
+}
+
+
 	
 void test_square_gen() {
 	Square *pSquare = makeSquare(4, 1);
@@ -66,6 +110,7 @@ void test_square_gen() {
 int main() {
 	const struct CMUnitTest tests[] = {
 		cmocka_unit_test(test_square_gen),
+		cmocka_unit_test(test_cut_square_area),
 		cmocka_unit_test(test_cut_square)
 	};
 

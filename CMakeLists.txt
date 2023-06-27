@@ -2,7 +2,10 @@ cmake_minimum_required(VERSION 3.22)
 project("MakeSquare")
 
 set(CMAKE_BUILD_TYPE Debug)
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address")
+
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -std=c11")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_LINKER_FLAGS_DEBUG} -fprofile-arcs -fno-omit-frame-pointer -fsanitize=address")
+
 
 file(GLOB LIB_SOURCES src/MakeSquare.c)
 file(GLOB LIB_HEADERS lib/MakeSquare.h)
