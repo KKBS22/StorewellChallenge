@@ -36,12 +36,15 @@ Output: 9x9
 ```
 Comile with : gcc -I ./cmocka-1.1.5/include/ -L ./cmocka-1.1.5/build/src/ test_MakeSquare.c -l:libcmocka-static.a libMakeSquareLib.a -fsanitize=address
 
-[==========] Running 2 test(s).
+[==========] Running 3 test(s).
 [ RUN      ] test_square_gen
 [       OK ] test_square_gen
+[ RUN      ] test_cut_square_area
+[       OK ] test_cut_square_area
 [ RUN      ] test_cut_square
 [       OK ] test_cut_square
-[==========] 2 test(s) run.
-[  PASSED  ] 2 test(s).
+[==========] 3 test(s) run.
+[  PASSED  ] 3 test(s).
+
 ```
 
