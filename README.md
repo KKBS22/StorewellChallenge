@@ -47,4 +47,8 @@ Comile with : gcc -I ./cmocka-1.1.5/include/ -L ./cmocka-1.1.5/build/src/ test_M
 [  PASSED  ] 3 test(s).
 
 ```
+# Future Rev
 
+1. Implementing multi-threaded solver to accept more requested from users to make it scalable.
+2. Add more test coverages and checks for corner cases.
+3. Running profilers to understand code coverage and performance
