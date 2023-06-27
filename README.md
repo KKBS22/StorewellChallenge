@@ -13,6 +13,21 @@ Output: 1x1
 Input: N = 9, M = 9
 Output: 9x9
 
+# Desgin
+```
+Let's take an example
+      Div     Quo(/)  Mod(%)
+135   100      1        35
+100    35      2        30
+35     30      1         5
+30      5      6         0 => Stopping Condition
+
+Div : The smallest length of the rectangle is the Max square that can be cut
+Quo : The max number of squares  of the size of Div that can be cut
+Mod : Is the next max square that can be cut
+```
+ 
+
 # Usage 
 ```
 1. Clone the repository
